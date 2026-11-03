@@ -1,0 +1,3 @@
+package com.sumitdocmind;
+import org.springframework.boot.SpringApplication; import org.springframework.boot.autoconfigure.SpringBootApplication;
+@SpringBootApplication public class SumitDocMindApplication { public static void main(String[] args){ SpringApplication.run(SumitDocMindApplication.class,args); } }

@@ -1,0 +1,31 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: ${DATABASE_URL:jdbc:mysql://localhost:3306/sumitdocmind?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false}
+    username: ${DATABASE_USERNAME:root}
+    password: ${DATABASE_PASSWORD:stsh@123}
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+  sql:
+    init:
+      mode: always
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+app:
+  provider: ${AI_PROVIDER:openai}
+  openai-api-key: ${OPENAI_API_KEY:ollama}
+  openai-base-url: ${OPENAI_BASE_URL:http://localhost:11434/v1}
+  chat-model: ${OPENAI_CHAT_MODEL:phi3:latest}
+  embedding-model: ${OPENAI_EMBEDDING_MODEL:nomic-embed-text}
+  jwt-secret: ${JWT_SECRET:local-dev-secret-change-this-to-a-long-random-string}
+  # Set to true to require JWT on /api endpoints (default: false = auth disabled for local dev)
+  jwt-enabled: ${JWT_ENABLED:false}
+  # When JWT is disabled, all requests act as this user id
+  jwt-default-user: ${JWT_DEFAULT_USER:1}
